@@ -37,6 +37,11 @@ Britain is a history of repeated injuries and usurpations, all having in direct 
 establishment of an absolute Tyranny over these States. To prove this, let Facts be submitted to a
 candid world.
 """
+
+let arr = declarationOfIndependence.components(separatedBy:" ")
+if let max = arr.max(by: {$1.count > $0.count}) {
+    print(max)
+    }
 ```
 
 ## Question 2
