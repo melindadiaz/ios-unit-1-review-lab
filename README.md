@@ -96,13 +96,29 @@ let letterValues = [
 ```
 
 a. Sort the string below in descending order according the dictionary letterValues
+```
 var codeString = "aldfjaekwjnfaekjnf"
-
-
+var newDictionary = [String:Int]()
+var codeString = "aldfjaekwjnfaekjnf"
+for (key,value) in letterValues {
+    if codeString.contains(key) {
+        newDictionary[key] = value
+    }
+}
+print(newDictionary.sorted(by: {$0.value > $1.value}))
+```
 b. Sort the string below in ascending order according the dictionary letterValues
 var codeStringTwo = "znwemnrfewpiqn"
-
-
+```
+var newDictionary = [String:Int]()
+var codeString = "aldfjaekwjnfaekjnf"
+for (key,value) in letterValues {
+    if codeString.contains(key) {
+        newDictionary[key] = value
+    }
+}
+print(newDictionary.sorted(by: {$0.value < $1.value}))
+```
 ## Question 4
 
 Given an Array of Arrays of Ints, write a function that returns the Array of Ints with the largest sum:
@@ -126,13 +142,35 @@ struct ReceiptItem {
   let name: String
   let price: Double
 }
+
+struct NameOfStore {
+    let name = [Receipt.init(storeName: <#T##String#>, items: <#T##[ReceiptItem]#>)]
+}
+//in thos case $0 means take EVERY RECEIPT in every high order function it will mean different things
+func findStoreReceipts(receipt:[Receipt], NameofStore:String) -> [Receipt] {
+    let filteredStoreReceipts = receipt.filter({$0.storeName == NameofStore})
+    return filteredStoreReceipts
 ```
 
 a. Given the structs above, add a method to `Receipt` that returns the total cost of all items
-
+```
+func totalCost(_ sumOfItems: [Double]) -> Double {
+       _ = sumOfItems.reduce(0,+)
+```
 b. Write a function that takes in an array of `Receipts` and returns an array of `Receipts` that match a given store name
+```
+struct NameOfStore {
+    let name = [Receipt.init(storeName: <#T##String#>, items: <#T##[ReceiptItem]#>)]
+}
+//in thos case $0 means take EVERY RECEIPT in every high order function it will mean different things
+func findStoreReceipts(receipt:[Receipt], NameofStore:String) -> [Receipt] {
+    let filteredStoreReceipts = receipt.filter({$0.storeName == NameofStore})
+    return filteredStoreReceipts
+```
+c. Write a function that takes in an array of `Receipts` and returns an array of those receipts sorted by price 
+*** I dont understand this question reworded, It should say an array of those receipts sorted by TOTAL PRICE.
 
-c. Write a function that takes in an array of `Receipts` and returns an array of those receipts sorted by price
+%% create this by creating a function that totals the price of a receipt THEN another function to total them
 
 ## Question 6
 
